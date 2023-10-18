@@ -23,7 +23,7 @@ router.get('/:id', async (req, res) => {
       include: [{ model: Product, through: ProductTag, as: 'products_with_this_tag' }]
     });
     if (!tagData) {
-      res.status(404).json({ message: 'No tag data with that ID found.' })
+      res.status(404).json({ message: 'No tag data with corresponding ID found.' })
     };
     res.status(200).json(tagData);
   } catch (err) {
@@ -48,7 +48,7 @@ router.put('/:id', async (req, res) => {
       }
     })
     if (!tagData) {
-      res.status(404).json({ message: 'No tag data with that ID found.' })
+      res.status(404).json({ message: 'No tag data with corresponding ID found.' })
     };
     res.status(200).json(tagData);
   } catch (err) {
@@ -65,7 +65,7 @@ router.delete('/:id', async (req, res) => {
     });
 
     if (!tagData) {
-      res.status(404).json({ message: 'No tag data with that ID found.' })
+      res.status(404).json({ message: 'No tag data with corresponding ID found.' })
     };
 
     res.status(200).json(tagData);
